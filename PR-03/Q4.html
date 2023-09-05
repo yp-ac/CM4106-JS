@@ -1,0 +1,29 @@
+<!-- 
+    Practical 03 (D)
+    Question: Create a program which an array of string and number in ascending and descending order.
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Array.length</title>
+</head>
+<body>
+    
+    <script>
+        let arrOfNumbers = [200, 300, 100, 700, 600, 400, 500]
+        let arrOfStrings = ["Java", "Python", "C++", "Cobol", "JavaScript", "Golang"]
+
+        console.log("arrOfStrings = " + arrOfStrings)
+        arrOfStrings.sort()
+        console.log("[after sort (asc)] arrOfStrings = " + arrOfStrings)
+        arrOfStrings.sort((a, b) => b > a)
+        console.log("[after sort (desc)] arrOfStrings = " + arrOfStrings)
+
+        console.log("arrOfNumbers = " + arrOfNumbers)
+        arrOfNumbers.sort()
+        console.log("[after sort (asc)] arrOfNumbers = " + arrOfNumbers)
+        arrOfNumbers.sort((a, b) => b - a)
+        console.log("[after sort (desc)] arrOfNumbers = " + arrOfNumbers)
+    </script>
+</body>
+</html>
