@@ -1,0 +1,30 @@
+<!-- 
+    Practical 07 (B)
+    Question: Program by using the following events
+                i  ] onKeyDown
+                ii ] onKeyUp
+                iii] onKeyPress
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Keyboard Events</title>
+</head>
+<body id="main">
+    <script>
+        let main = document.getElementById("main")
+
+        main.addEventListener("keydown", (event) => {
+            console.log("[event] keydown : key=" + event.key)
+        })
+
+        main.addEventListener("keypress", (event) => {
+            console.log("[event] keypress : key=" + event.key)
+        })
+
+        main.addEventListener("keyup", (event) => {
+            console.log("[event] keyup : key=" + event.key)
+        })
+    </script>
+</body>
+</html>

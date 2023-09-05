@@ -1,0 +1,30 @@
+<!-- 
+    Practical 08 (B)
+    Question: Explain the use of Intrinsic Java Functions
+                [i] eval() [ii] parseInt() [iii] parseFloat()
+ -->
+<!DOCTYPE html>
+<html data-theme="light">
+<head>
+    <title>Intrinsic Functions</title>
+</head>
+<body>
+    <script>
+        let codeAsString = `
+            let i = 17;
+            console.log(i + 2)
+        `
+        eval(codeAsString)
+
+        let intAsString = '112'
+        let int = parseInt(intAsString)
+        console.log("[type] int = " + typeof int)
+        console.log("[value] int = " + int)
+
+        let floatAsString = '200.5'
+        let float = parseFloat(floatAsString)
+        console.log("[type] float = " + typeof float)
+        console.log("[value] float = " + float)
+    </script>
+</body>
+</html>

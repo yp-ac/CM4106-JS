@@ -1,0 +1,60 @@
+<!-- 
+    Practical 08 (A)
+    Question: Program to use Image as Button for submit and reset
+ -->
+<!DOCTYPE html>
+<html data-theme="light">
+<head>
+    <title>Image as Button</title>
+    <!-- Using PicoCSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <style>
+        .flex-grid {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .flex-grid img {
+            max-width: 40%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form action="./thankyou.html" method="GET" id="form">
+            <div class="grid">
+                <label for="uname">
+                    Username
+                    <input type="text" name="uname" id="uname">
+                </label>
+
+                <label for="password">
+                    Password
+                    <input type="password" name="password" id="password">
+                </label>
+            </div>
+
+            <div class="flex-grid">
+                <img src="./submit.png" alt="submit" id="submitBtn">
+
+                <img src="./reset.png" alt="reset" id="resetBtn">
+            </div>
+        </form>
+    </div>
+    <script>
+        let form = document.getElementById("form")
+        let submitBtn = document.getElementById("submitBtn")
+        let resetBtn = document.getElementById("resetBtn")
+
+        submitBtn.addEventListener("click", (event) => {
+            console.log("Submit Button Clicked")
+            form.submit()
+        })
+        
+        resetBtn.addEventListener("click", (event) => {
+            console.log("Reset Button Clicked")
+            form.reset()
+        })
+    </script>
+</body>
+</html>

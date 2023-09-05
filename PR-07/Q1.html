@@ -1,0 +1,40 @@
+<!-- 
+    Practical 07 (A)
+    Question: Program by using the following events
+                i  ] onMouseMove
+                ii ] onMouseOut
+                iii] onLoad
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Events</title>
+    <style>
+        div {
+            margin: 5rem;
+            border: 1px dashed #008080;
+            border-radius: 0.4rem;
+            height: 10rem;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div id="main"></div>
+    <script>
+        let main = document.getElementById("main")
+
+        main.addEventListener("mousemove", (event) => {
+            console.log("[event] Mouse moved : ", event)
+        })
+
+        main.addEventListener("mouseout", (event) => {
+            console.log("[event] Mouse Out : ", event)
+        })
+
+        main.addEventListener("load", (event) => {
+            console.log("[event] Load : ", event)
+        })
+    </script>
+</body>
+</html>

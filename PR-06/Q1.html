@@ -1,0 +1,69 @@
+<!-- 
+    Practical 06
+    Question: Create a Registeration form by using 
+                * textfield
+                * textarea
+                * button
+                * radiobutton
+                * dropdownlist
+ -->
+<!DOCTYPE html>
+<html data-theme="light">
+<head>
+    <title>Registeration Form</title>
+    <!-- Using PicoCSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <style>
+        :root {
+            --primary: #00897b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Review Form</h1>
+        <form>
+            <div class="grid">
+                <label for="name">
+                    Name
+                    <input type="text" name="name" id="namefield">
+                </label>
+
+                <label for="type">
+                    Review Type
+                    <select name="type" id="type">
+                        <option value="positive">Positive</option>
+                        <option value="negative">Negative</option>
+                        <option value="neutral">Neutral</option>
+                    </select>
+                </label>
+            </div>
+
+            <div class="grid">
+                <fieldset>
+                    <legend>Gender</legend>
+                    <label for="male">
+                        <input type="radio" name="gender" id="male" value="male">
+                        Male
+                    </label>
+
+                    <label for="female">
+                        <input type="radio" name="gender" id="female" value="female">
+                        Female
+                    </label>
+                    
+                    <label for="others">
+                        <input type="radio" name="gender" id="others" value="others">
+                        others
+                    </label>
+                </fieldset>
+            </div>
+
+            <label for="review">Review</label>
+            <textarea name="review" id="review" cols="30" rows="10"></textarea>
+
+            <button type="submit">Submit Review</button>
+        </form>
+    </div>
+</body>
+</html>
