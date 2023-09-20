@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css"
+		/>
+		<title>Sorting Algorithm Visualizer</title>
+
+		<script src="https://d3js.org/d3.v7.min.js"></script>
+		<script src="app.js" type="module" defer></script>
+
+		<style>
+			/* Teal Light scheme (Default) */
+			/* Can be forced with data-theme="light" */
+			[data-theme="light"],
+			:root:not([data-theme="dark"]) {
+				--primary: #00897b;
+				--primary-hover: #00796b;
+				--primary-focus: rgba(0, 137, 123, 0.125);
+				--primary-inverse: #fff;
+			}
+
+			/* Teal Dark scheme (Forced) */
+			/* Enabled if forced with data-theme="dark" */
+			[data-theme="dark"] {
+				--primary: #00897b;
+				--primary-hover: #009688;
+				--primary-focus: rgba(0, 137, 123, 0.25);
+				--primary-inverse: #fff;
+			}
+
+			/* Teal (Common styles) */
+			:root {
+				--form-element-active-border-color: var(--primary);
+				--form-element-focus-color: var(--primary-focus);
+				--switch-color: var(--primary-inverse);
+				--switch-checked-background-color: var(--primary);
+			}
+
+			svg {
+				width: 100%;
+				padding: 1rem;
+				border: 2px solid var(--primary-focus);
+				border-radius: 0.5rem;
+			}
+
+			#speed-op {
+				color: var(--primary)
+			}
+		</style>
+	</head>
+	<body>
+		<main class="container">
+			<hgroup>
+				<h1>Sorting Algorithm Visualizer</h1>
+				<h3>
+					A simple JavaScript Application to Visualize various
+					different Sorting techniques
+				</h3>
+			</hgroup>
+
+            <div class="grid">
+				<label for="size">
+					Size:
+					<input type="number" name="size" id="size" value="20" max="55" min="5" step="5">
+				</label>
+
+				<label for="algorithm">
+					Algorithm:
+					<select name="algorithm" id="algorithm" required>
+						<option value="bs">Bubble Sort</option>
+						<option value="is">Insertion Sort</option>
+						<option value="ss">Selection Sort</option>
+					</select>
+				</label>
+
+				<label for="speed">
+					Speed: <span id="speed-op">250 ms/step</span>
+					<input type="range" name="speed" id="speed" min="0" max="100" value="50">
+				</label>
+
+				<button id="main-btn">Start</button>
+            </div>
+
+			<svg id="viz-area"></svg>
+
+			<div class="modals">
+				<!-- <dialog>
+					<article>
+					  <header>
+						<a href="#close" aria-label="Close" class="close"></a>
+						Modal title
+					  </header>
+					  <p>
+						Nunc nec ligula a tortor sollicitudin dictum in vel enim. 
+						Quisque facilisis turpis vel eros dictum aliquam et nec turpis. 
+						Sed eleifend a dui nec ullamcorper. 
+						Praesent vehicula lacus ac justo accumsan ullamcorper.
+					  </p>
+					</article>
+				  </dialog> -->
+			</div>
+		</main>
+	</body>
+</html>
