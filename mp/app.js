@@ -22,10 +22,10 @@ const props = {
     width: parent.offsetWidth,
     duration: Number(localStorage.getItem('duration')) || 250,
     colors: {
-        primary: getComputedStyle(parent).getPropertyValue('--primary'),
-        secondary: '#fcd34d',
-        tertiary: '#ef4444', 
-        completed: '#22c55e' 
+        0: getComputedStyle(parent).getPropertyValue('--primary'),
+        1: '#fcd34d',
+        2: '#ef4444', 
+        3: '#22c55e' 
     }
 }
 

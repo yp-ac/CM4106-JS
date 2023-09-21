@@ -20,7 +20,7 @@ export default function initChart(svgc, props) {
         .append('rect') // append rectangle for new data
         .attr('height', d => height - yScale(d.value))
         .attr('width', xScale.bandwidth())
-        .attr('fill', colors.primary)
+        .attr('fill', (d) => colors[d.color])
         .attr('x', d => xScale(d.id))
         .attr('y', d => yScale(d.value))
 
@@ -34,25 +34,12 @@ export default function initChart(svgc, props) {
 
         svgc.selectAll('rect')
             .data(data, d => d.id)
-            .filter((d, i) => d.color === 1)
-            .attr('fill', colors.secondary)
-        
-        svgc.selectAll('rect')
-            .data(data, d => d.id)
-            .filter((d, i) => d.color === 2)
-            .attr('fill', colors.tertiary)
-           
-        svgc.selectAll('rect')
-            .data(data, d => d.id)
-            .filter((d, i) => d.color === 3)
-            .attr('fill', colors.completed)
-           
-        svgc.selectAll('rect')
+            .attr('fill', (d) => colors[d.color])
             .transition(transition)
             .attr('x', (d) => xScale(d.id))
 
         await transition.end()
         svgc.selectAll('rect')
-            .attr('fill', colors.primary)
+            .attr('fill', colors[0])
     }
 }

@@ -13,12 +13,16 @@ function* bubbleSort(props) {
 
             yield {
                 j: [j + 1],
-                step: (i + 1) * data.length + j + 1,
                 resetColor: false
             }
         }
-
+        
         data[data.length - i - 1].color = 3
+    }
+
+    yield {
+        j: [],
+        resetColor: true
     }
 }
 
@@ -55,9 +59,13 @@ function* selectionSort(props) {
 
         yield {
             j: [i, minIdx],
-            step: (i + 1) * data.length,
             resetColor: false
         }
+    }
+    
+    yield {
+        j: [],
+        resetColor: true
     }
 }
 
@@ -77,12 +85,16 @@ function* insertionSort(props) {
 
             yield {
                 j: [],
-                step: 0,
                 resetColor: false
             }
         }
-
+        
         key.color = 3
+    }
+    
+    yield {
+        j: [],
+        resetColor: true
     }
 }
 
