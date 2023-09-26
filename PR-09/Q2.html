@@ -1,0 +1,30 @@
+<!-- 
+    Practical 09 (B)
+    Question: Develop a program to create & Read a Cookie
+-->
+<!DOCTYPE html>
+<html data-theme="light">
+<head>
+    <title>🥠 Cookies</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="headings">
+            <h2>Cookie</h2>
+            <h3 id="output"></h3>
+        </div>
+        
+        <label for="text">
+            Enter Cookie `text` value:
+            <input type="text" oninput="updateCookie()" id="text">
+        </label>
+    </div>
+    <script>
+        function updateCookie() {
+            document.cookie = `text=${document.getElementById('text').value}`
+            document.getElementById('output').innerText = document.cookie
+        }
+    </script>
+</body>
+</html>

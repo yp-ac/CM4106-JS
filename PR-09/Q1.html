@@ -1,0 +1,26 @@
+<!-- 
+    Practical 09 (A)
+    Question: Develop a program for the following
+            [  i] Create a Cookie with your name 
+            [ ii] Setting Cookie Expiry date with it's path 
+            [iii] Delete a Cookie
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>🍪 Cookies</title>
+</head>
+<body>
+    <script>
+        // Cookie with Name
+        document.cookie = "name=Yash Pawar"
+        document.cookie = "uname=yashppawar"
+        
+        // cookie with expiry & path
+        document.cookie = "idealPerson=Simone Weil; expires=Wed, 27 Sept 2023 12:00:00 UTC; path=/"
+
+        // delete a cookie
+        document.cookie = "uname=;expires=Thu, 01 Jan 1970 00:00:00 UTC;"
+    </script>
+</body>
+</html>

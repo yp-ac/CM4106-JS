@@ -1,0 +1,41 @@
+<!-- 
+    Practical 09 (C)
+    Question: 
+    Create a Webpage that displays a form that contains an input for username & password.
+    User is propmted to enter the input and password, and password becomes value of the cookie write the javaScript function for storing cookie. It gets executed when the password changes
+-->
+<!DOCTYPE html>
+<html data-theme="light">
+<head>
+    <title>👤 Cookie Login</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+</head>
+<body>
+    <div class="container">
+        <h6>Login</h6>
+
+        <label for="uname">
+            Username:
+            <input type="text" id="uname">
+        </label>
+        
+        <label for="password">
+            Password:
+            <input type="password" oninput="updateCookie()" id="password">
+        </label>
+
+        <button type="submit">Login</button>
+
+        <div class="headings">
+            <h2>Cookies</h2>
+            <h3 id="output"></h3>
+        </div>
+    </div>
+    <script>
+        function updateCookie() {
+            document.cookie = `password=${document.getElementById('password').value}`
+            document.getElementById('output').innerText = document.cookie
+        }
+    </script>
+</body>
+</html>
