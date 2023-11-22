@@ -1,0 +1,43 @@
+<!-- 
+    Practical 10 (b)
+    Question: 
+    Write a Program for accessing the child window
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Window</title>
+</head>
+<body>
+   <button onclick="openWIndow()">Open Window</button>
+
+   <button onclick="closeWIndow()">Close Window</button>
+   <button onclick="blurWIndow()">Blur Window</button>
+   <button onclick="focusWIndow()">Focus Window</button>
+   <button onclick="writeToWIndow()">Write to Window</button>
+
+    <script>
+        let myWindow
+        function openWIndow() {
+            myWindow = window.open("window2.html", "", "width=200,height=100");
+        }
+        
+        function closeWIndow() {
+            myWindow.close();
+        }
+
+        function blurWIndow() {
+            myWindow.blur();
+        }        
+        
+        function focusWIndow() {
+            myWindow.focus();
+        }        
+
+        function writeToWIndow() {
+            myWindow.document.write("This is a Window");
+        }
+    </script>
+ 
+</body>
+</html>

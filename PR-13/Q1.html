@@ -1,0 +1,92 @@
+<!-- 
+    Practical 13
+    Question: 
+    Writing basic application demonstrating Angular JS expressions and directives
+-->
+<!DOCTYPE html>
+<html ng-app="ImageGalleryApp">
+<head>
+  <title>Image Gallery with Descriptions</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <style>
+    .main {
+        display: flex;
+    }
+
+    .container {
+        display: inline;
+    }
+
+    .image {
+      border: 2px solid transparent;
+      cursor: pointer;
+      padding: 1rem;
+    }
+
+    .image.selected {
+      border-color: #007bff;
+    }
+
+    .description {
+      display: none;
+      padding: 10px;
+      background-color: #f0f0f0;
+      border: 1px solid #ccc;
+    }
+
+    .description.active {
+      display: block;
+    }
+  </style>
+</head>
+<body ng-controller="ImageGalleryController">
+  <h1>Image Gallery</h1>
+  <div class="main">
+      <div ng-repeat="image in images" class="container">
+        <div class="image" ng-click="toggleDescription($index)" ng-class="{ 'selected': selectedIndex === $index }">
+          <img ng-src="{{image.urls.small}}" width="150">
+        </div>
+        <div class="description" ng-class="{ 'active': selectedIndex === $index }">
+          <p>{{ image.description }}</p>
+        </div>
+      </div>
+  </div>
+
+  <script>
+    angular.module('ImageGalleryApp', [])
+      .controller('ImageGalleryController', ['$scope', '$http', function($scope, $http) {
+        $scope.images = [];
+        $scope.selectedIndex = -1;
+
+        var unsplashAccessKey = '7JAqD2g_4iXRYleyZ6kfZ0uaVbduwVDEH73iaC_wP7Q';
+
+        $http({
+          method: 'GET',
+          url: 'https://api.unsplash.com/photos/random?count=5',
+          headers: {
+            'Authorization': 'Client-ID ' + unsplashAccessKey
+          }
+        }).then(function(response) {
+          $scope.images = response.data;
+
+          $scope.images.forEach(function(image) {
+            $http({
+              method: 'GET',
+              url: 'https://baconipsum.com/api/?type=all-meat&paras=1&sentences=1'
+            }).then(function(response) {
+              image.description = response.data[0];
+            });
+          });
+        });
+
+        $scope.toggleDescription = function(index) {
+          if ($scope.selectedIndex === index) {
+            $scope.selectedIndex = -1; 
+          } else {
+            $scope.selectedIndex = index;
+          }
+        };
+      }]);
+  </script>
+</body>
+</html>

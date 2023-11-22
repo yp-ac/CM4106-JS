@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="helloApp">
+<head>
+    <title>Hello Angular</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-controller="helloCtl">
+    <div ng-repeat="detail in details">
+        Hello {{ detail.name }} from {{ detail.country }}! <br>
+        <span ng-if="detail.name == 'Andrew'"> 🚩 </span>
+    </div>
+
+    <table>
+        <tr ng-repeat="detail in details | orderBy:'country'">
+            <td>{{$index + 1 | currency}}</td>
+            <td>{{detail.name | uppercase}}</td>
+            <td>{{detail.country}}</td>
+            <td><input type="text" ng-model="detail.country"></td>
+        </tr>
+    </table>
+
+    <form>
+        <input type="text" ng-init="$name='Athena'" ng-model="$name">
+        <button ng-click="submit()">hello</button>
+    </form>
+    Name = <span ng-bind="$name"></span>
+    <script>
+        let app = angular.module('helloApp', [])
+        app.controller('helloCtl', function($scope) {
+            $scope.details = [
+                {
+                    name: "Vibha",
+                    country: "India"
+                },
+                {
+                    name: "Percy",
+                    country: "Greece"
+                },
+                {
+                    name: "Andrew",
+                    country: "USA"
+                },
+            ]
+
+            $scope.submit = () => {
+                console.log("hello")
+            }
+        })
+    </script>
+</body>
+</html>
